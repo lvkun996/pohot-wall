@@ -16,12 +16,13 @@
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
-      img {
-        width: 44%;
-        display: block;
-        margin-bottom: 2vw;
-        object-fit: cover;
-      }
+
+    }
+    .photo-item {
+      width: 44%;
+      display: block;
+      margin-bottom: 2vw;
+      object-fit: cover;
     }
     .preview {
       position: fixed;
@@ -33,19 +34,19 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      img {
-        width: 100vw;
-      }
+    }
+    .preview-img {
+      width: 100vw;
     }
   </style>
 </head>
 <body>  
   <div id="app" >
     <div class="photo" id="photo" >
-      <img @click="() => preview(`./photo/${item}.jpg`)" :src="'./photo/' + item + '.jpg'" alt="" v-for="item in 17"  :key="item">
+      <img class="photo-item" @click="() => preview(`./photo/${item}.jpg`)" :src="'./photo/' + item + '.jpg'" alt="" v-for="item in 17"  :key="item">
     </div>
     <div class="preview" v-if="visible" @click="visible = false" >
-      <img  style="width: 100vw;" :src="imgUrl" alt="">
+      <img class="preview-img"  style="width: 100vw;" :src="imgUrl" alt="">
     </div>
    
   </div>
